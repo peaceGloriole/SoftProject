@@ -31,7 +31,7 @@ export default function Register() {
                         type="password"
                         placeholder="Confirm Password" />
 
-                    <button type="submit" className="register">Register</button>
+                    <button type="button" className="register">Register</button>
 
                     <p className="field">
                         <span>If you already have profile click <Link to="/login">here</Link></span>

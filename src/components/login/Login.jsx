@@ -24,7 +24,7 @@ export default function Login() {
                         type="password"
                         placeholder="Password" />
 
-                    <button type="submit" className="login">Login</button>
+                    <button type="button" className="login">Login</button>
 
                     <p className="field">
                         <span>If you don't have profile click <Link to="/register">here</Link></span>
