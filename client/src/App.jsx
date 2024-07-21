@@ -23,6 +23,7 @@ function App() {
           <Route path="/albums" element={<Album />} />
           <Route path="/albums/:albumId/details" element={<AlbumDetails />} />
           <Route path="/albums/create" element={<AlbumCreate />} />
+          {/* TODO : Edit/Create/Delete */}
         </Routes>
       </main>
 

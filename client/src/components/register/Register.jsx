@@ -1,9 +1,20 @@
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export default function Register() {
+    const [email, setEmail] = useState(``);
+    const [user, setUser] = useState(``);
+    const [password, setPassword] = useState(``);
+
+    const submitClickHandler = (e) => {
+        e.preventDefault;
+
+
+    };
+
     return (
         <section id="registerPage">
-            <form>
+            <form onSubmit={submitClickHandler}>
                 <fieldset>
                     <legend>Register</legend>
 
