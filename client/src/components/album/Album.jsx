@@ -1,27 +1,29 @@
-import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import * as musicAPI from "../../api/musicApi";
+import AlbumListItem from "./albumListItem/AlbumListItem";
+
 
 export default function Album() {
+    const [album, setAlbum] = useState({});
+
+    useEffect(() => {
+        (async () => {
+            const album = await musicAPI.getAll();
+ 
+            setAlbum(album);
+        })();
+    }, []);
+
     return (
         <section id="catalogPage">
             <h1>All Albums</h1>
 
-            <div className="card-box">
-                <img src="./images/BrandiCarlile.png" />
-                    <div>
-                        <div className="text-center">
-                            <p className="name">Name: In These Silent Days</p>
-                            <p className="artist">Artist: Brandi Carlile</p>
-                            <p className="genre">Genre: Low Country Sound Music</p>
-                            <p className="price">Price: $12.80</p>
-                            <p className="date">Release Date: October 1, 2021</p>
-                        </div>
-                        <div className="btn-group">
-                            <a href="#" id="details">Details</a>
-                        </div>
-                    </div>
-            </div>
+            {album.length > 0
+                ? album.map(album => <AlbumListItem key={album._id} {...album} />)
+                : <p>No Albums in Catalog!</p>
+            }
 
-            <div className="card-box">
+            {/* <div className="card-box">
                 <img src="./images/pinkFloyd.jpg" />
                     <div>
                         <div className="text-center">
@@ -51,9 +53,8 @@ export default function Album() {
                             <Link to={`/albums/`} id="details">Details</Link>
                         </div>
                     </div>
-            </div>
+            </div> */}
 
-            <p>No Albums in Catalog!</p>
 
         </section>
     );

@@ -1,0 +1,32 @@
+{
+    "2e533cdd-c91c-426e-85da-4716285a25c7": {
+        "name": "Boulevard of Broken Dreams",
+        "imgUrl": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRbasb9NZJO6V_09__5mPaQL1Cp2OhlUHNgPfMeHv6c5KaTfv-fsb9hUrRc6tWbxv8ZbeT7UZvRGZM3T32Z3EbV_5mNZRxqlfR3sKR5OQ",
+        "price": "14,99",
+        "releaseDate": "2004",
+        "artist": "Green Day",
+        "genre": "Emo, Hardrock, Alternative",
+        "description": "Boulevard of Broken Dreams is a song by American rock band Green Day. The power ballad[1] is the fourth track from their seventh studio album American Idiot (2004). Reprise Records released Boulevard of Broken Dreams as the second single from American Idiot on November 29, 2004. The song's lyrics were written by lead singer Billie Joe Armstrong, and the music was composed by the band. Production was handled by Rob Cavallo and Green Day",
+        "_id": "2e533cdd-c91c-426e-85da-4716285a25c7"
+    },
+    "6de0abb5-638e-4ca8-954e-b3f573e1b32b": {
+        "name": "Without Me",
+        "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjVb4hCHhByzuV2OZwHBl5BjxJ6TS8pFT9CrILqoXwtOaVtOB6",
+        "price": "24,99",
+        "releaseDate": "2002",
+        "artist": "Eminem",
+        "genre": "Spoken word, Hip-hop/Rap",
+        "description": "Without Me is a song by American rapper Eminem from his fourth studio album The Eminem Show (2002). Without Me was released on May 13, 2002,[1] as the lead single from the album, and re-released on his greatest hits compilation album Curtain Call: The Hits (2005). Without Me is one of Eminem's most successful singles, reaching number two on the U.S. Billboard Hot 100, and number one in fifteen countries.",
+        "_id": "6de0abb5-638e-4ca8-954e-b3f573e1b32b"
+    },
+    "0998f359-88bc-4aa6-96d7-fe1c0bef4ec1": {
+        "name": "Sen Trope",
+        "imgUrl": "https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcS9VLMDO2x-2b3OHc7hNLr9vQlX2fOCdFKRrkHI_auOi-sym-flWVtv4NBjHLlkhHOsEY-rFKaV0ZyWCnaInRAO4q48gQ8TLwTz9fLZrFY",
+        "price": "20,99",
+        "releaseDate": "2014",
+        "artist": "Azis",
+        "genre": "Chalga",
+        "description": "Vasil Troyanov Boyanov (Bulgarian: Васил Троянов Боянов; born 7 March 1978), professionally known as Azis (Bulgarian: Азис), is a Bulgarian recording artist of Romani ethnicity.[3][4] Azis initially rose to prominence in Eastern Europe performing songs mostly in chalga, a genre which can be described as the Bulgarian rendition of pop-folk.",
+        "_id": "0998f359-88bc-4aa6-96d7-fe1c0bef4ec1"
+    }
+}

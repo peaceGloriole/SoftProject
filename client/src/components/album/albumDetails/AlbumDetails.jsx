@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 export default function AlbumDetails() {
+
     return (
         <section id="detailsPage">
             <div className="wrapper">
