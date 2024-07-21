@@ -1,24 +1,37 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import musicAPI from "../../../api/musicApi";
+import { useParams } from 'react-router-dom';
 
 export default function AlbumDetails() {
+
+    const [album, setAlbum] = useState({});
+
+    const { albumId } = useParams();
+
+    useEffect(() => {
+        (async () => {
+            const albumDetail = await musicAPI.getOne(albumId);
+            
+            setAlbum(albumDetail);
+        })();
+    }, [albumId]);
 
     return (
         <section id="detailsPage">
             <div className="wrapper">
                 <div className="albumCover">
-                    <img src="./images/Lorde.jpg" />
+                    <img src={album.imgUrl} />
                 </div>
                 <div className="albumInfo">
                     <div className="albumText">
 
-                        <h1>Name: Melodrama</h1>
-                        <h3>Artist: Lorde</h3>
-                        <h4>Genre: Pop Music</h4>
-                        <h4>Price: $7.33</h4>
-                        <h4>Date: June 16, 2017</h4>
-                        <p>Description: Melodrama is the second studio album by New Zealand singer-songwriter Lorde.
-                            It was released on 16 June 2017 by Lava and Republic Records and distributed through
-                            Universal.</p>
+                        <h1>Name: {album.name}</h1>
+                        <h3>Artist: {album.artist}</h3>
+                        <h4>Genre: {album.genre}</h4>
+                        <h4>Price: ${album.price}</h4>
+                        <h4>Date: {album.releaseDate}</h4>
+                        <p>Description: {album.description}</p>
                     </div>
 
                     <div className="actionBtn">
