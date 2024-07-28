@@ -3,13 +3,24 @@ import { useEffect, useState } from "react";
 
 export default function Register() {
     const [email, setEmail] = useState(``);
-    const [user, setUser] = useState(``);
     const [password, setPassword] = useState(``);
+    const [rePass, setRePass] = useState(``);
+
+    useEffect(() => {
+        (async () => {
+            const response = await fetch(`http://localhost:3030/jsonstore/albums`);
+            const result = response.json();
+
+            return result;
+        })();
+    }, []);
 
     const submitClickHandler = (e) => {
         e.preventDefault;
 
-
+        setEmail(e.target.email.value);
+        setUser(e.target.user.value);
+        setPassword(e.target.password.value);
     };
 
     return (
@@ -23,6 +34,8 @@ export default function Register() {
                         id="email"
                         className="email"
                         name="email"
+                        value={email.email}
+                        onChange={(e) => setEmail(e.target.value)}
                         type="text"
                         placeholder="Email" />
 
@@ -31,6 +44,8 @@ export default function Register() {
                         id="password"
                         className="password"
                         name="password"
+                        value={password.password}
+                        onChange={(e) => setPassword(e.target.value)}
                         type="password"
                         placeholder="Password" />
 
@@ -38,7 +53,9 @@ export default function Register() {
                     <input
                         id="conf-pass"
                         className="conf-pass"
-                        name="conf-pass"
+                        name="rePass"
+                        value={rePass.rePass}
+                        onChange={(e) => setRePass(e.target.value)}
                         type="password"
                         placeholder="Confirm Password" />
 
