@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
-import * as musicAPI from "../../api/musicApi";
+
 import AlbumListItem from "./albumListItem/AlbumListItem";
+import { getAll } from "../../api/musicApi";
 
 
 export default function Album() {
@@ -8,8 +9,8 @@ export default function Album() {
 
     useEffect(() => {
         (async () => {
-            const album = await musicAPI.getAll();
- 
+            const album = await getAll();
+
             setAlbum(album);
         })();
     }, []);

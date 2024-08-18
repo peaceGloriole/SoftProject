@@ -1,10 +1,27 @@
-/* eslint-disable react/no-unescaped-entities */
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
+import { useLogin } from '../../hooks/useAuth';
+import { useForm } from '../../hooks/useForm';
 
 export default function Login() {
+    const login = useLogin();
+    const navigate = useNavigate();
+
+    const {
+        values,
+        changeHandler,
+        submitHandler,
+    } = useForm(
+        { email: '', password: '' }, ({ email, password }) => {
+            login(email, password);
+
+            navigate(`/`);
+        });
+
     return (
         <section id="loginPage">
-            <form>
+            <form onSubmit={submitHandler}>
                 <fieldset>
                     <legend>Login</legend>
 
@@ -14,6 +31,8 @@ export default function Login() {
                         className="email"
                         name="email"
                         type="text"
+                        onChange={changeHandler}
+                        value={values.email}
                         placeholder="Email" />
 
                     <label htmlFor="password" className="vhide">Password</label>
@@ -22,6 +41,8 @@ export default function Login() {
                         className="password"
                         name="password"
                         type="password"
+                        value={values.password}
+                        onChange={changeHandler}
                         placeholder="Password" />
 
                     <button type="button" className="login">Login</button>

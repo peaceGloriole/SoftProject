@@ -1,5 +1,17 @@
-import { changeAuthState } from "../contexts/AuthContext";
+import { login } from "../api/auth-api";
 
-export const useRegister = () => { 
-    const { changeAuthState } = useContext(AuthContext);
+export const useLogin = () => {
+    const loginHandler = async (email, password) => {
+        try {
+            const result = await login(email, password);
+
+            console.log(result);
+        } catch (error) {
+            console.log(error.message);
+        }
+
+        return;
+    };
+
+    return loginHandler;
 };
