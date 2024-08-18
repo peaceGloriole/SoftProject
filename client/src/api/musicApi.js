@@ -11,10 +11,3 @@ export const getAll = async () => {
 };
 
 export const getOne = (albumsId) => request.get(`${BASE_URL}/${albumsId}`);
-
-const musicAPI = {
-  getAll,
-  getOne,
-};
-
-export default musicAPI;

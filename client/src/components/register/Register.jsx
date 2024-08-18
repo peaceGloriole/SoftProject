@@ -19,8 +19,8 @@ export default function Register() {
         e.preventDefault;
 
         setEmail(e.target.email.value);
-        setUser(e.target.user.value);
         setPassword(e.target.password.value);
+        setRePass(e.target.rePass.value);
     };
 
     return (
