@@ -1,0 +1,9 @@
+.error {
+    color: red;
+    font-size: 12px;
+    font-family: "Lato";
+}
+
+.form-control {
+   margin-bottom: 12px;
+}
