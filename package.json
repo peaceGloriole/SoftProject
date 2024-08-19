@@ -1,5 +1,9 @@
 {
   "dependencies": {
+    "react-hook-form": "^7.52.2",
     "react-router-dom": "^6.25.1"
+  },
+  "devDependencies": {
+    "@hookform/devtools": "^4.3.1"
   }
 }

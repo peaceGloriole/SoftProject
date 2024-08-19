@@ -28,23 +28,23 @@ function App() {
 
   return (
     <AuthContext.Provider value={contextData}>
-    <div id="box">
-      <Header />
+      <div id="box">
+        <Header />
 
-      <main id="main-content">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/albums" element={<Album />} />
-          <Route path="/albums/:albumId/details" element={<AlbumDetails />} />
-          <Route path="/albums/create" element={<AlbumCreate />} />
-          {/* TODO : Edit/Create/Delete */}
-        </Routes>
-      </main>
+        <main id="main-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/albums" element={<Album />} />
+            <Route path="/albums/:albumId/details" element={<AlbumDetails />} />
+            <Route path="/albums/create" element={<AlbumCreate />} />
+            {/* TODO : Edit/Create/Delete */}
+          </Routes>
+        </main>
 
-      <Footer />
-    </div>
+        <Footer />
+      </div>
     </AuthContext.Provider>
   );
 }

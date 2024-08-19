@@ -1,31 +1,25 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useForm } from 'react-hook-form';
+import { DevTool } from "@hookform/devtools";
+import React from "react";
+
+type FormValues = {
+    email: string;
+    password: string;
+    "conf-pass": string;
+};
 
 export default function Register() {
-    const [email, setEmail] = useState(``);
-    const [password, setPassword] = useState(``);
-    const [rePass, setRePass] = useState(``);
+    const form = useForm<FormValues>();
+    const { register, control, handleSubmit } = form;
 
-    useEffect(() => {
-        (async () => {
-            const response = await fetch(`http://localhost:3030/jsonstore/albums`);
-            const result = response.json();
-
-            return result;
-        })();
-    }, []);
-
-    const submitClickHandler = (e) => {
-        e.preventDefault;
-
-        setEmail(e.target.email.value);
-        setPassword(e.target.password.value);
-        setRePass(e.target.rePass.value);
+    const onSubmit = (data: FormValues) => {
+        console.log('submit', data);
     };
 
     return (
         <section id="registerPage">
-            <form onSubmit={submitClickHandler}>
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <fieldset>
                     <legend>Register</legend>
 
@@ -33,9 +27,7 @@ export default function Register() {
                     <input
                         id="email"
                         className="email"
-                        name="email"
-                        value={email.email}
-                        onChange={(e) => setEmail(e.target.value)}
+                        {...register("email")}
                         type="text"
                         placeholder="Email" />
 
@@ -43,9 +35,7 @@ export default function Register() {
                     <input
                         id="password"
                         className="password"
-                        name="password"
-                        value={password.password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        {...register("password")}
                         type="password"
                         placeholder="Password" />
 
@@ -53,19 +43,18 @@ export default function Register() {
                     <input
                         id="conf-pass"
                         className="conf-pass"
-                        name="rePass"
-                        value={rePass.rePass}
-                        onChange={(e) => setRePass(e.target.value)}
+                        {...register("conf-pass")}
                         type="password"
                         placeholder="Confirm Password" />
 
-                    <button type="button" className="register">Register</button>
+                    <button className="register">Register</button>
 
                     <p className="field">
                         <span>If you already have profile click <Link to="/login">here</Link></span>
                     </p>
                 </fieldset>
             </form>
-        </section>
+            <DevTool control={control} />
+        </section >
     );
 }

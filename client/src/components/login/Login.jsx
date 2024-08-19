@@ -45,7 +45,7 @@ export default function Login() {
                         onChange={changeHandler}
                         placeholder="Password" />
 
-                    <button type="button" className="login">Login</button>
+                    <button className="login">Login</button>
 
                     <p className="field">
                         <span>If you don't have profile click <Link to="/register">here</Link></span>
