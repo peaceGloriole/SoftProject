@@ -1,19 +1,9 @@
-import { useEffect, useState } from "react";
-
 import AlbumListItem from "./albumListItem/AlbumListItem";
-import { getAll } from "../../api/musicApi";
 
+import { getAllAlbums } from "../../hooks/useGames";
 
 export default function Album() {
-    const [album, setAlbum] = useState({});
-
-    useEffect(() => {
-        (async () => {
-            const album = await getAll();
-
-            setAlbum(album);
-        })();
-    }, []);
+    const [album, setAlbum] = getAllAlbums();
 
     return (
         <section id="catalogPage">

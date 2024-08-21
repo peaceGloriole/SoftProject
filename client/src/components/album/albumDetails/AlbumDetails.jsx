@@ -4,15 +4,13 @@ import { getOne } from "../../../api/musicApi";
 import { useParams } from 'react-router-dom';
 
 export default function AlbumDetails() {
-
-    const [album, setAlbum] = useState({});
-
     const { albumId } = useParams();
+    const [album, setAlbum] = useState({});
 
     useEffect(() => {
         (async () => {
             const albumDetail = await getOne(albumId);
-            
+
             setAlbum(albumDetail);
         })();
     }, [albumId]);
