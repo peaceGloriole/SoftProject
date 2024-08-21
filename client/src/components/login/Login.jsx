@@ -15,7 +15,6 @@ export default function Login() {
     const loginHandler = async (email, password) => {
         if (!email || !password) {
             setError(`Incorrect email or password!`);
-            return;
         }
 
         try {

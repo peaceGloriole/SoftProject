@@ -1,9 +1,9 @@
 import AlbumListItem from "./albumListItem/AlbumListItem";
 
-import { getAllAlbums } from "../../hooks/useGames";
+import { useGetAllAlbums } from "../../hooks/useGames";
 
 export default function Album() {
-    const [album, setAlbum] = getAllAlbums();
+    const [album, setAlbum] = useGetAllAlbums();
 
     return (
         <section id="catalogPage">

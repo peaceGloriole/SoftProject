@@ -1,6 +1,6 @@
 import * as requester from './requester';
 
-const BASE_URL = 'http://localhost:3030/jsonstore/albums';
+const BASE_URL = 'http://localhost:3030/data/albums';
 
 export const getAll = async () => {
   const result = await requester.get(BASE_URL);
@@ -10,3 +10,5 @@ export const getAll = async () => {
 };
 
 export const getOne = (albumsId) => requester.get(`${BASE_URL}/${albumsId}`);
+
+export const createAlbum = (data) => requester.post(BASE_URL, data);

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { getAll, getOne } from "../api/musicApi";
+import { createAlbum, getAll, getOne } from "../api/musicApi";
 
-export function getAllAlbums() {
+export function useGetAllAlbums() {
     const [albums, setAlbums] = useState([]);
 
     useEffect(() => {
@@ -15,7 +15,7 @@ export function getAllAlbums() {
     return [albums, setAlbums];
 };
 
-export function getAlbumById(albumId) {
+export function useGetOneAlbum(albumId) {
     const [album, setAlbum] = useState({});
 
     useEffect(() => {
@@ -27,4 +27,10 @@ export function getAlbumById(albumId) {
     }, [albumId]); // This array contains the dependencies of the effect
 
     return [album, setAlbum];
+};
+
+export function useCreateAlbum() {
+    const albumCreateHandler = (data) => createAlbum(data);
+
+    return albumCreateHandler;
 };
