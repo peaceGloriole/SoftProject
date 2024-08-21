@@ -28,7 +28,7 @@ export default function Register() {
 
             navigate('/');
         } catch (error) {
-            console.log(error.message);
+            setError(error.message);
         }
     };
 
@@ -70,12 +70,7 @@ export default function Register() {
                         onChange={changeHandler}
                         placeholder="Confirm Password" />
 
-                    {error &&
-                        <p>
-                            <span>⚠️</span>
-                            <span>{error}</span>
-                        </p>
-                    }
+                    {error ? <div className="error">{error}</div> : null}
 
                     <button className="register">Register</button>
 

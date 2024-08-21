@@ -16,9 +16,8 @@ export default async function requester(method, url, data) {
     const response = await fetch(url, options);
     const result = await response.json();
 
-    if (response.status === 409) {
-        console.log('User already exists!');
-        return;
+    if (!response.ok) {
+        throw result;
     }
 
     return result;
