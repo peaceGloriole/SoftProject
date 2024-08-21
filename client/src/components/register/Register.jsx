@@ -1,4 +1,7 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useRegister } from "../../hooks/useAuth";
+import { useForm } from "../../hooks/useForm";
+
 // import { useForm } from 'react-hook-form';
 // import { DevTool } from "@hookform/devtools";
 // import React from "react";
@@ -8,6 +11,8 @@ import { Link } from "react-router-dom";
 //     password: string;
 //     "conf-pass": string;
 // };
+
+const initialValues = { email: '', password: '', 'conf-pass': '' };
 
 export default function Register() {
     // const form = useForm<FormValues>();
@@ -20,11 +25,26 @@ export default function Register() {
 
     // const BASE_URL = 'http://localhost:3030/users';
 
+    const register = useRegister();
+    const navigate = useNavigate();
+
+    const registerHandler = async ({ email, password, repassword }) => {
+        try {
+            await register(email, password);
+
+            navigate('/');
+        } catch (error) {
+            console.log(error.message);
+        }
+    };
+
+    const { values, changeHandler, submitHandler } = useForm(initialValues, registerHandler);
+
     return (
         <section id="registerPage">
             {/* <form action="http://localhost:3030/users"  onSubmit={handleSubmit(onSubmit)}> */}
 
-            <form>
+            <form onSubmit={submitHandler}>
                 <fieldset>
                     <legend>Register</legend>
 
@@ -44,6 +64,9 @@ export default function Register() {
                         //         }
                         //     },
                         // })}
+                        name="email"
+                        value={values.email}
+                        onChange={changeHandler}
                         type="text"
                         placeholder="Email" />
 
@@ -52,6 +75,9 @@ export default function Register() {
                         id="password"
                         className="password"
                         type="password"
+                        name="password"
+                        value={values.password}
+                        onChange={changeHandler}
                         placeholder="Password" />
 
                     <label htmlFor="conf-pass" className="vhide">Confirm Password:</label>
@@ -59,6 +85,9 @@ export default function Register() {
                         id="conf-pass"
                         className="conf-pass"
                         type="password"
+                        name="repassword"
+                        values={values.repassword}
+                        onChange={changeHandler}
                         placeholder="Confirm Password" />
 
                     <button className="register">Register</button>
