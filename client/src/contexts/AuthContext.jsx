@@ -28,7 +28,7 @@ export function AuthContextProvider(props) {
     );
 }
 
-export function useAuthState() {
+export function useAuthContext() {
     const authData = useContext(AuthContext);
 
     return authData;
