@@ -1,22 +1,29 @@
-import { Link } from 'react-router-dom';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { useLogin } from '../../hooks/useAuth';
 import { useForm } from '../../hooks/useForm';
 
+import { useState } from 'react';
+
 const initialValues = { email: '', password: '' };
 
 export default function Login() {
+    const [error, setError] = useState(``);
     const login = useLogin();
     const navigate = useNavigate();
 
     const loginHandler = async (email, password) => {
+        if (!email || !password) {
+            setError(`Incorrect email or password!`);
+            return;
+        }
+
         try {
             await login(email, password);
 
             navigate(`/`);
         } catch (error) {
-            console.log(error.message);
+            setError(error.message);
         }
     };
 
@@ -51,6 +58,8 @@ export default function Login() {
                         value={values.password}
                         onChange={changeHandler}
                         placeholder="Password" />
+
+                    {error ? <div className="error">{error}</div> : null}
 
                     <button className="login">Login</button>
 

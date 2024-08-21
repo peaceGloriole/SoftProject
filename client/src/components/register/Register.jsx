@@ -1,16 +1,30 @@
 import { Link, useNavigate } from "react-router-dom";
+
+import { useState } from "react";
+
 import { useRegister } from "../../hooks/useAuth";
 import { useForm } from "../../hooks/useForm";
 
 const initialValues = { email: '', password: '', 'conf-pass': '' };
 
 export default function Register() {
+    const [error, setError] = useState('');
     const register = useRegister();
     const navigate = useNavigate();
 
     const registerHandler = async ({ email, password, repassword }) => {
+        if (!email || !password || !repassword) {
+            setError('All fields are required!');
+            return;
+        }
+
+        if (password !== repassword) {
+            setError('Passwords do not match!');
+            return;
+        }
+
         try {
-            await register(email, password);
+            await register(email, password, repassword);
 
             navigate('/');
         } catch (error) {
@@ -55,6 +69,13 @@ export default function Register() {
                         values={values.repassword}
                         onChange={changeHandler}
                         placeholder="Confirm Password" />
+
+                    {error &&
+                        <p>
+                            <span>⚠️</span>
+                            <span>{error}</span>
+                        </p>
+                    }
 
                     <button className="register">Register</button>
 
