@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import { useAuthContext } from '../../contexts/AuthContext';
 
 export default function Header() {
-    const { isAuthenticated } = useAuthContext();
+    const { isAuthenticated, email } = useAuthContext();
     return (
         <header>
             <nav>
@@ -16,6 +16,9 @@ export default function Header() {
                             <li><Link to="/search">Search</Link></li>
                             <li><Link to="/albums/create">Create Album</Link></li>
                             <li><Link to="/logout">Logout</Link></li>
+                            <div>
+                                <a style={{ fontSize: '13px', paddingLeft: '420px' }}>Welcome, {email}</a>
+                            </div>
                         </>
                     ) : (
                         <>
