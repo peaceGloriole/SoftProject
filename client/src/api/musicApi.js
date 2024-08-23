@@ -12,3 +12,5 @@ export const getAll = async () => {
 export const getOne = (albumsId) => requester.get(`${BASE_URL}/${albumsId}`);
 
 export const createAlbum = (data) => requester.post(BASE_URL, data);
+
+export const deleteAlbum = (albumsId) => requester.del(`${BASE_URL}/${albumsId}`);
