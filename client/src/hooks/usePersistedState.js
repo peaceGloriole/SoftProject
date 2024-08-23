@@ -4,7 +4,7 @@ export function usePersistedState(key, initialState) {
     const [state, setState] = useState(() => {
         const persistedState = localStorage.getItem(key);
 
-        if (persistedState) {
+        if (!persistedState) {
             return typeof initialState === `function`
                 ? initialState()
                 : initialState;
