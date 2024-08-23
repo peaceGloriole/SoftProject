@@ -12,7 +12,7 @@ export default function Login() {
     const login = useLogin();
     const navigate = useNavigate();
 
-    const loginHandler = async (email, password) => {
+    const loginHandler = async ({ email, password }) => {
         if (!email || !password) {
             setError(`Incorrect email or password!`);
         }

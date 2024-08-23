@@ -1,15 +1,9 @@
-import * as requester from "./requester";
+import * as requester from './requester';
 
 const BASE_URL = 'http://localhost:3030/users';
 
-export const login = async (email, password) => {
-    const { password: _, ...authData } = await requester.post(`${BASE_URL}/login`, { email, password });
+export const login = (email, password) => requester.post(`${BASE_URL}/login`, { email, password });
 
-    return authData;
-};
+export const register = (email, password) => requester.post(`${BASE_URL}/register`, { email, password });
 
-export const register = async (email, password) => {
-    const { password: _, ...authData } = await requester.post(`${BASE_URL}/register`, { email, password });
-
-    return authData;
-};
+export const logout = () => requester.get(`${BASE_URL}/logout`);
