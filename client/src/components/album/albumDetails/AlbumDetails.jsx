@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { getOne } from "../../../api/musicApi";
-import { useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from "react-router-dom";
+
+import { deleteAlbum, getOne } from "../../../api/musicApi";
+
 import { useAuthContext } from "../../../contexts/AuthContext";
 
 export default function AlbumDetails() {
+    const navigate = useNavigate();
     const { userId } = useAuthContext();
     const { albumId } = useParams();
     const [album, setAlbum] = useState({});
+    const [error, setError] = useState('');
 
     useEffect(() => {
         (async () => {
@@ -18,6 +21,15 @@ export default function AlbumDetails() {
     }, [albumId]);
 
     const isOwner = album._ownerId === userId;
+
+    const albumDeleteHandler = async () => {
+        try {
+            await deleteAlbum(albumId)
+            navigate('/albums');
+        } catch (error) {
+            setError(error.message);
+        }
+    };
 
     return (
         <section id="detailsPage">
@@ -38,7 +50,7 @@ export default function AlbumDetails() {
                     {isOwner && (
                         <div className="actionBtn">
                             <Link to="/album/edit" className="edit">Edit</Link>
-                            <Link to="/album/delete" className="remove">Delete</Link>
+                            <Link to="/album/delete" onClick={albumDeleteHandler} className="remove">Delete</Link>
                         </div>
                     )}
                 </div>
