@@ -16,7 +16,15 @@ export function useGetAllAlbums() {
 };
 
 export function useGetOneAlbum(albumId) {
-    const [album, setAlbum] = useState({});
+    const [album, setAlbum] = useState({
+        name: ``,
+        imgUrl: ``,
+        price: ``,
+        releaseDate: ``,
+        artist: ``,
+        genre: ``,
+        description: ``, // This is the initial state of the album
+    });
 
     useEffect(() => {
         (async () => {

@@ -9,8 +9,11 @@ export const getAll = async () => {
   return albums;
 };
 
-export const getOne = (albumsId) => requester.get(`${BASE_URL}/${albumsId}`);
+export const getOne = async (albumsId) => {
+  const result = await requester.get(`${BASE_URL}/${albumsId}`);
 
+  return result;
+}
 export const createAlbum = (data) => requester.post(BASE_URL, data);
-
 export const deleteAlbum = (albumsId) => requester.del(`${BASE_URL}/${albumsId}`);
+export const updateAlbum = (albumsId, data) => requester.put(`${BASE_URL}/${albumsId}`, data);

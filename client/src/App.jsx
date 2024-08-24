@@ -9,6 +9,7 @@ import AlbumCreate from "./components/albumCreate/AlbumCreate";
 import Album from "./components/album/Album";
 import Footer from "./components/footer/Footer";
 import AlbumDetails from "./components/album/albumDetails/AlbumDetails";
+import AlbumEdit from "./components/albumEdit/AlbumEdit";
 
 import { AuthContextProvider } from "./contexts/AuthContext";
 
@@ -25,6 +26,7 @@ function App() {
                     <Routes>
                         <Route element={<ViewGuard />}>
                             <Route path="/albums/create" element={<AlbumCreate />} />
+                            <Route path="/albums/:albumId/edit" element={<AlbumEdit />} />
                         </Route>
                         <Route path="/" element={<Home />} />
                         <Route path="/login" element={<Login />} />

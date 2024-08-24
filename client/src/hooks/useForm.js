@@ -1,7 +1,12 @@
+import { useEffect } from "react";
 import { useState } from "react";
 
 export function useForm(initialData, submitCallback) {
     const [values, setValues] = useState(initialData);
+
+    useEffect(() => {
+        setValues(initialData);
+    }, [initialData]);
 
     const changeHandler = (e) => {
         setValues(values => ({
@@ -14,6 +19,8 @@ export function useForm(initialData, submitCallback) {
         e.preventDefault();
 
         submitCallback(values);
+
+        setValues(initialData);
     }
 
     return {

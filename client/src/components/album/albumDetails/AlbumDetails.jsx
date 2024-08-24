@@ -49,8 +49,8 @@ export default function AlbumDetails() {
                     </div>
                     {isOwner && (
                         <div className="actionBtn">
-                            <Link to="/album/edit" className="edit">Edit</Link>
-                            <Link to="/album/delete" onClick={albumDeleteHandler} className="remove">Delete</Link>
+                            <Link to="/albums/:albumId/edit" className="edit">Edit</Link>
+                            <Link to="/albums" onClick={albumDeleteHandler} className="remove">Delete</Link>
                         </div>
                     )}
                 </div>
