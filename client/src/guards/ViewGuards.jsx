@@ -9,7 +9,7 @@ export default function ViewGuard() {
         :
         <div>
             <h1>Unauthorized</h1>
-            <span>You must be logged in to view this page. Click<Link to="/login">here</Link></span>
+            <span>You must be logged in to view this page. Click<Link to="/login">here</Link> to login. </span>
             <span>If you don't have profile click <Link to="/register">here</Link></span>
         </div>
 };

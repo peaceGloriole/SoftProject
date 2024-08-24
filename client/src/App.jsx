@@ -11,33 +11,34 @@ import Footer from "./components/footer/Footer";
 import AlbumDetails from "./components/album/albumDetails/AlbumDetails";
 
 import { AuthContextProvider } from "./contexts/AuthContext";
+
 import ViewGuard from "./guards/ViewGuards";
 
 function App() {
 
-  return (
-    <AuthContextProvider>
-      <div id="box">
-        <Header />
+    return (
+        <AuthContextProvider>
+            <div id="box">
+                <Header />
 
-        <main id="main-content">
-          <Routes>
-            <Route element={<ViewGuard />}>
-              <Route path="/albums/create" element={<AlbumCreate />} />
-            </Route>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} />
-            <Route path="/logout" element={<Logout />} />
-            <Route path="/albums" element={<Album />} />
-            <Route path="/albums/:albumId/details" element={<AlbumDetails />} />
-          </Routes>
-        </main>
+                <main id="main-content">
+                    <Routes>
+                        <Route element={<ViewGuard />}>
+                            <Route path="/albums/create" element={<AlbumCreate />} />
+                        </Route>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/login" element={<Login />} />
+                        <Route path="/register" element={<Register />} />
+                        <Route path="/logout" element={<Logout />} />
+                        <Route path="/albums" element={<Album />} />
+                        <Route path="/albums/:albumId/details" element={<AlbumDetails />} />
+                    </Routes>
+                </main>
 
-        <Footer />
-      </div>
-    </AuthContextProvider>
-  );
+                <Footer />
+            </div>
+        </AuthContextProvider>
+    );
 }
 
 export default App;
